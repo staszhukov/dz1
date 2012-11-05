@@ -1,9 +1,18 @@
 Staszhukov::Application.routes.draw do
+
+  root :to => 'main#index‘ 
+match “/about” => “main#about”
+
   get "main/index"
 
   get "main/about"
 
   get "main/help"
+  
+  resources :static_pages
+match "/patients/:id" => "patients#show“
+  
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
